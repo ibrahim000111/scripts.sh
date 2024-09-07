@@ -17,3 +17,4 @@ q
 ram.txt
 swap_enable.sh
 wordpress.sh
+.gitignore
