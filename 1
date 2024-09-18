@@ -1,0 +1,20 @@
+#!/bin/bash
+
+while true
+do
+    # Get current CPU usage as a percentage
+    CPU=$(top -bn1 | grep "Cpu(s)" | awk '{print $2}')
+    
+    # Get current RAM usage as a percentage
+    RAM=$(free | awk '/Mem/{printf("%.2f"), $3/$2*100}')
+    
+    # Check if either usage is above 80%
+    if [ $(echo "$CPU > 80" | bc -l) -eq 1 ] || [ $(echo "$RAM > 80" | bc -l) -eq 1 ]
+    then
+        # Send an alert via email or any other desired method
+        echo "CPU or RAM usage is above 80%! Take action immediately." | mail -s "Alert: High resource usage on EC2 instance" example@example.com
+    fi
+    
+    # Sleep for 5 minute before checking again
+    sleep 300
+done
