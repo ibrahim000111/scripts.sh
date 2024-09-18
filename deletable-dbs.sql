@@ -1,0 +1,16 @@
+Database
+abc
+asd
+asd123
+asd2123
+danny123
+danny1230
+information_schema
+mysql
+performance_schema
+qwe
+qwe123
+qwe321
+sys
+wordpress
+zxc456

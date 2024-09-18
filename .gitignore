@@ -8,7 +8,7 @@ apt.gpg
 cpu_usge.sh
 docker.sh
 example.sh
-lemp.sh
+#lemp.sh
 monitor.sh
 monitor_orignal.sh
 mysql.sh
