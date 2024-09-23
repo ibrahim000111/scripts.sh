@@ -54,27 +54,27 @@ else
 	mysql -uroot -p${rootpasswd} -e "GRANT ALL PRIVILEGES ON ${dbname}.* TO '${username}'@'localhost';"
 	mysql -uroot -p${rootpasswd} -e "FLUSH PRIVILEGES;"
 	echo "You're good now :)"
-
+#apt update
+#sudo apt install -y php-curl php-gd php-intl php-mbstring php-soap php-xml php-xmlrpc php-zip
+#sudo systemctl restart php8.3-fpm
+#cd /tmp
+#curl -LO https://wordpress.org/latest.tar.gz
+#tar xzvf latest.tar.gz
+#cp /tmp/wordpress/wp-config-sample.php /tmp/wordpress/wp-config.php
 	read -p "what the name of root folder:" root_folder
 	mkdir -p /var/www/html/wordpress/${root_folder}
 	sudo cp -a /tmp/wordpress/. /var/www/html/wordpress/${root_folder}
         sed -i "s/database_name_here/${dbname}/g" /var/www/html/wordpress/${root_folder}/wp-config.php
         sed -i "s/username_here/${username}/g" /var/www/html/wordpress/${root_folder}/wp-config.php
         sed -i "s/password_here/${userpass}/g" /var/www/html/wordpress/${root_folder}/wp-config.php
-
-        #rm -r /home/wp-config.php
-        #cp /tmp/wordpress/wp-config.php /home
-        #sed -i "s/database_name_here/${dbname}/g" /home/wp-config.php 
-        #sed -i "s/username_here/${username}/g" /home/wp-config.php
-        #sed -i "s/password_here/${userpass}/g" /home/wp-config.php
-	echo "/var/www/html/wordpress/${root_folder}/wp-config.php edited done"
+	git clone https://github.com/shameemreza/all-in-one-wp-migration.git
+        mv all-in-one-wp-migration /var/www/html/wordpress/${root_folder}/wp-content/plugins
+        sudo chown -R www-data:www-data /var/www/html/wordpress
+        ip = $(curl http://checkip.amazonaws.com)
+	echo "good, new wordpress site been deployed you can access the site with $ip:)"
 	exit
 fi
 
+ 
 
-#curl -LO https://wordpress.org/latest.tar.gz
-#tar xzvf latest.tar.gz
-#cp /tmp/wordpress/wp-config-sample.php /tmp/wordpress/wp-config.php
-#sudo cp -a /tmp/wordpress/. /var/www/wordpress
-#sudo chown -R www-data:www-data /var/www/wordpress
 
