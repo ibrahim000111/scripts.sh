@@ -1,4 +1,6 @@
 #!/bin/bash
+#https://medium.com/@FlorenceOkoli/smtp-mailutils-how-to-send-your-mails-via-the-linux-terminal-6d95803a1104
+# https://medium.com/@subhomay/effective-linux-server-monitoring-with-a-shell-script-for-cpu-and-ram-usage-b3d1523892ed
 
 while true
 do
