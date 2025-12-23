@@ -65,6 +65,7 @@ else
 	read -p "what the name of root folder:" root_folder
 	mkdir -p /var/www/html/wordpress/${root_folder}
 	sudo cp -a /tmp/wordpress/. /var/www/html/wordpress/${root_folder}
+	chown -R www-data:www-data var/www/html/wordpress/${root_folder}
         sed -i "s/database_name_here/${dbname}/g" /var/www/html/wordpress/${root_folder}/wp-config.php
         sed -i "s/username_here/${username}/g" /var/www/html/wordpress/${root_folder}/wp-config.php
         sed -i "s/password_here/${userpass}/g" /var/www/html/wordpress/${root_folder}/wp-config.php
